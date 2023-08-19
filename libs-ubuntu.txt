@@ -1,0 +1,5 @@
+python3-cffi
+python3-cairocffi
+libpangocairo-1.0-0
+xserver-xorg
+libwlroots-dev
