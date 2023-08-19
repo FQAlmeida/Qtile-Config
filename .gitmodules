@@ -1,0 +1,6 @@
+[submodule "qtile-extras"]
+	path = qtile-extras
+	url = https://github.com/elParaguayo/qtile-extras
+[submodule "qtile"]
+	path = qtile
+	url = https://github.com/qtile/qtile
