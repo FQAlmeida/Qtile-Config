@@ -162,8 +162,10 @@ widgets = [
             )
         ],
     ),
-    widget.Spacer(length=20),
-    widget.Prompt(foreground=colors[2]),
+    widget.Spacer(length=5),
+    # widget.WindowName(max_chars=25),
+    widget.Spacer(length=5),
+    widget.Prompt(foreground=colors[2], prompt="Run: "),
     widget.Spacer(),
     widget.Clock(
         format="%H:%M:%S %d/%m/%Y",
@@ -209,10 +211,18 @@ widgets = [
             widget.CPUGraph(),
             widget.MemoryGraph(),
             # widget.Systray(),
-        ]
+        ],
+        text_closed=icons["arrow-circle-left"],
+        text_open=icons["arrow-circle-right"],
+        padding=5,
+        close_button_location="right",
     ),
-    widget.Spacer(length=10),
-    widget.QuickExit(),
+    widget.Spacer(length=5),
+    widget.QuickExit(
+        default_text=icons["power-off"],
+        countdown_format=icons["chevron-left"] + "{}" + icons["chevron-right"],
+        padding=10,
+    ),
     widget.Spacer(length=10),
 ]
 
