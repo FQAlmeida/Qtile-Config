@@ -4,3 +4,6 @@
 [submodule "qtile"]
 	path = qtile
 	url = https://github.com/qtile/qtile
+[submodule "fontawesome-python"]
+	path = fontawesome-python
+	url = https://github.com/justbuchanan/fontawesome-python.git
