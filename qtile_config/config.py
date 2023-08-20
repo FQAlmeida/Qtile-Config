@@ -130,10 +130,10 @@ layout_theme = {
 
 
 layouts = [
-    MonadTall(**layout_theme, margin=5),
+    MonadTall(**layout_theme, margin=5, single_border_width=0, single_margin=0),
     Max(border_width=0, margin=0),
-    Columns(**layout_theme, margin=5),
-    MonadThreeCol(**layout_theme, margin=3),
+    Columns(**layout_theme, margin=5, margin_on_single=0),
+    MonadThreeCol(**layout_theme, margin=3, single_border_width=0, single_margin=0),
 ]
 
 
