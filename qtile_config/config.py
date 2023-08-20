@@ -7,8 +7,10 @@ from libqtile.layout.xmonad import MonadTall, MonadThreeCol
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+from libqtile.log_utils import logger
 
 from qtile_extras.widget.decorations import BorderDecoration
+from fontawesome import icons
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -110,7 +112,7 @@ for i in groups:
 
 
 colors = [
-    ["#000000.0", "#FFFFFF.0"],
+    ["#000000.0", "#ffffff.0"],
     ["#000000", "#000000"],
     ["#ffffff", "#ffffff"],
     ["#c60cfa", "#c60cfa"],
@@ -136,10 +138,14 @@ layouts = [
 
 
 widget_defaults = dict(
-    font="Firacode Nerd Font,sans", fontsize=12, padding=0, background=colors[1]
+    font="FiraCode Nerd Font,NotoSans Nerd Font,Ubuntu Mono,sans",
+    fontsize=12,
+    padding=0,
+    background=colors[1],
 )
 extension_defaults = widget_defaults.copy()
 
+logger.error(icons.keys())
 widgets = [
     # widget.WindowName(),
     widget.Spacer(length=10),
@@ -149,7 +155,7 @@ widgets = [
             "printf $(whoami)", shell=True, text=True
         ).upper(),
         foreground=colors[4],
-        fmt="❤  {}",
+        fmt=icons["heartbeat"] + " {}",
         decorations=[
             BorderDecoration(
                 colour=colors[4],
@@ -159,6 +165,10 @@ widgets = [
     ),
     widget.Spacer(length=20),
     widget.Prompt(foreground=colors[2]),
+    widget.Spacer(),
+    widget.Clock(
+        format="%H:%M:%S %d/%m/%Y",
+    ),
     widget.Spacer(),
     widget.CurrentLayoutIcon(
         foreground=colors[2],
@@ -186,7 +196,7 @@ widgets = [
     widget.Spacer(length=10),
     widget.PulseVolume(
         foreground=colors[2],
-        fmt="🔊 Vol: {}",
+        fmt=f"{icons['speaker-deck']} " + "Vol: {}",
         decorations=[
             BorderDecoration(
                 colour=colors[4],
@@ -195,9 +205,6 @@ widgets = [
         ],
     ),
     widget.Spacer(length=20),
-    widget.Clock(
-        format="%H:%M:%S %d/%m/%Y",
-    ),
     widget.Spacer(length=10),
     widget.WidgetBox(
         widgets=[

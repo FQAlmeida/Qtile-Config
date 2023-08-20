@@ -15,6 +15,7 @@ pywayland = "^0.4.16"
 xkbcommon = "^0.8"
 cairocffi = "^1.6.1"
 psutil = "^5.9.5"
+fontawesome = "^5.10.1.post1"
 
 
 [build-system]
