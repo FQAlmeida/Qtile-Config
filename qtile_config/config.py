@@ -145,7 +145,6 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-logger.error(icons.keys())
 widgets = [
     # widget.WindowName(),
     widget.Spacer(length=10),
@@ -155,7 +154,7 @@ widgets = [
             "printf $(whoami)", shell=True, text=True
         ).upper(),
         foreground=colors[4],
-        fmt=icons["heartbeat"] + " {}",
+        fmt=icons["heart"] + "  {}",
         decorations=[
             BorderDecoration(
                 colour=colors[4],
@@ -184,19 +183,19 @@ widgets = [
         padding_x=3,
         borderwidth=3,
         active=colors[2],
-        inactive=colors[7],
+        inactive=colors[4],
         rounded=False,
-        highlight_color=colors[5],
-        highlight_method="line",
-        this_current_screen_border=colors[7],
-        this_screen_border=colors[5],
-        other_current_screen_border=colors[7],
-        other_screen_border=colors[5],
+        highlight_color=colors[4],
+        highlight_method="box",
+        this_current_screen_border=colors[5],
+        this_screen_border=colors[6],
+        other_current_screen_border=colors[5],
+        other_screen_border=colors[6],
     ),
     widget.Spacer(length=10),
     widget.PulseVolume(
         foreground=colors[2],
-        fmt=f"{icons['speaker-deck']} " + "Vol: {}",
+        fmt=icons["volume-up"] + "  {}",
         decorations=[
             BorderDecoration(
                 colour=colors[4],
@@ -204,7 +203,6 @@ widgets = [
             )
         ],
     ),
-    widget.Spacer(length=20),
     widget.Spacer(length=10),
     widget.WidgetBox(
         widgets=[
@@ -220,7 +218,7 @@ widgets = [
 
 screens = [
     Screen(
-        wallpaper="~/.config/qtile/wallpapers/beach.jpg",
+        wallpaper="~/.config/qtile/wallpapers/beach-gray.jpg",
         wallpaper_mode="stretch",
         top=bar.Bar(
             background="#00000000",
@@ -284,3 +282,5 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+logger.info("Up and Running")
