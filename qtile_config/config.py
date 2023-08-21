@@ -215,8 +215,11 @@ widgets = [
     widget.WidgetBox(
         widgets=[
             widget.CPUGraph(),
+            widget.Spacer(length=1),
             widget.MemoryGraph(),
-            widget.KeyboardLayout(configured_keyboards=["us(intl)", "br(nativo)"]),
+            widget.Spacer(length=1),
+            widget.KeyboardLayout(configured_keyboards=["us(intl)", "br(abnt2)"]),
+            widget.Spacer(length=1),
             widget.Systray(),
         ],
         text_closed=icons["arrow-circle-left"],
