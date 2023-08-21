@@ -89,6 +89,12 @@ keys = [
     ),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Skip to next"),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Skip to previous"),
+    Key(
+        [mod, "control"],
+        "space",
+        lazy.widget["keyboardlayout"].next_keyboard(),
+        desc="Next keyboard layout.",
+    ),
 ]
 groups = [Group(str(i)) for i in range(1, 5)]
 
@@ -210,7 +216,8 @@ widgets = [
         widgets=[
             widget.CPUGraph(),
             widget.MemoryGraph(),
-            # widget.Systray(),
+            widget.KeyboardLayout(configured_keyboards=["us(intl)", "br(nativo)"]),
+            widget.Systray(),
         ],
         text_closed=icons["arrow-circle-left"],
         text_open=icons["arrow-circle-right"],
